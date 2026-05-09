@@ -16,7 +16,7 @@ func helloUser(name: String) {
 helloUser(name: "Misha")
 
 func returnHelloUser(name: String) -> String {
-    return "Hello \(name)!"
+    "Hello \(name)!"
 }
 
 returnHelloUser(name: "Maksim")
@@ -34,23 +34,23 @@ print(sum(name: "Nikita ", surname: "Pashin"))
 // MARK: - Задание 3
 print("------------")
 
-func squareNumber(number: Int) -> Int {
+func checkSquareNumber(number: Int) -> Int {
     let square = number * number
     return square
 }
 
-print(squareNumber(number: 8))
+print(checkSquareNumber(number: 8))
 
 // MARK: - Задание 4
 print("------------")
 
-func areaCircle(component: Int) -> Double {
+func foundAreaCircle(component: Int) -> Double {
     let squareComponent2 = component * component
     let area = Double.pi * Double(squareComponent2)
     return area
 }
 
-print(areaCircle(component: 4))
+print(foundAreaCircle(component: 4))
 
 // MARK: - Задание 5
 print("------------")
@@ -81,21 +81,20 @@ checkTimeOfDay(hour: 67)
 print("------------")
 
 func checkMonthNumber(numberOfMouth: Int) -> String {
-    if numberOfMouth == 12 || numberOfMouth <= 2 {
-        return("It's a winter")
- } else if numberOfMouth >= 3 && numberOfMouth <= 5 {
-        return("It's a spring")
- }  else if numberOfMouth >= 6 && numberOfMouth <= 8 {
-        return("It's a summer")
- }   else if numberOfMouth >= 9 && numberOfMouth <= 11 {
-        return("It's a autumn")
-    } else {
-        return("Invalid value")
+    if numberOfMouth < 1 || numberOfMouth > 12 {
+            return "Invalid value"
+        } else if numberOfMouth == 12 || numberOfMouth <= 2 {
+            return "It's winter"
+        } else if numberOfMouth >= 3 && numberOfMouth <= 5 {
+            return "It's spring"
+        } else if numberOfMouth >= 6 && numberOfMouth <= 8 {
+            return "It's summer"
+        } else {
+            return "It's autumn"
+        }
     }
-   
-}
 
-print(checkMonthNumber(numberOfMouth: 1))
+print(checkMonthNumber(numberOfMouth: -100))
 
 
 // MARK: - Задание 7
@@ -139,8 +138,8 @@ func printFibonacciNumbers(number: Int) -> [Int] {
     if number == 1 { return [0, 1] }
     
     var calculation = [0, 1]
-    for indeks in 2...number {
-        let nextNumber = calculation[indeks-1] + calculation[indeks-2]
+    for index in 2...number {
+        let nextNumber = calculation[index-1] + calculation[index-2]
         calculation.append(nextNumber)
     }
     
